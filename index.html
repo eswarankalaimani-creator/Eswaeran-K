@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eswaran K — Cybersecurity Portfolio</title>
+  <meta name="description" content="Portfolio of Eswaran — Cybersecurity specialist. Ethical hacking, network security and digital forensics." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🔒</text></svg>">
+  <style>
+    /* ===== Reset & Base ===== */
+    :root{
+      --bg: #0b1020;
+      --card: #0f1724;
+      --muted: #98a0b3;
+      --accent: #00d1b2;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 14px;
+      --max-width: 1100px;
+      --ff: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff);
+      background: linear-gradient(180deg,#071029 0%, #081524 60%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    /* ===== Header / Hero ===== */
+    header{
+      display:grid;
+      grid-template-columns: 1fr 340px;
+      gap:28px;
+      align-items:center;
+      margin-bottom:28px;
+    }
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero h1{
+      margin:0 0 8px 0;
+      font-size:28px;
+      letter-spacing: -0.5px;
+    }
+    .hero p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      background:linear-gradient(90deg,var(--accent), #00b89a);
+      color:#022;
+      font-weight:600;
+      text-decoration:none;
+      box-shadow: 0 6px 18px rgba(0,209,178,0.12);
+    }
+    .hero .meta{
+      display:flex;
+      gap:12px;
+      margin-top:14px;
+      flex-wrap:wrap;
+    }
+    .meta .pill{
+      background:var(--glass);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:13px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    /* ===== Profile Card ===== */
+    .profile{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:18px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:flex-start;
+      box-shadow: 0 6px 20px rgba(2,6,23,0.5);
+    }
+    .avatar{
+      width:88px;
+      height:88px;
+      border-radius:14px;
+      background:linear-gradient(180deg,#0b1220,#072033);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:40px;
+      border:1px solid rgba(255,255,255,0.03);
+      flex-shrink:0;
+    }
+    .profile .info h3{margin:0 0 6px 0;font-size:18px}
+    .profile .info p{margin:0;color:var(--muted);font-size:13px}
+
+    /* ===== Main Sections ===== */
+    main{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns: 1fr 340px;
+      gap:28px;
+      align-items:start;
+    }
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.02);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.45);
+    }
+
+    /* Left (content) */
+    .content .section{margin-bottom:18px}
+    .section h2{margin:0 0 12px 0;font-size:18px}
+    .about p{color:var(--muted);margin:0 0 8px 0}
+    .education .edu-item{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;margin-bottom:10px}
+    .skills .skill-list{display:flex;gap:8px;flex-wrap:wrap}
+    .skill{background:var(--glass);padding:8px 10px;border-radius:10px;color:var(--muted);font-size:13px}
+
+    /* Projects grid */
+    .projects-grid{
+      display:grid;
+      gap:12px;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    }
+    .project{
+      padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .project h3{margin:0 0 8px 0;font-size:15px}
+    .project p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Certificates */
+    .certificates img{
+      width:100%;
+      border-radius:10px;
+      margin-top:8px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    /* Right column (contact & services) */
+    .services .svc{padding:12px;border-radius:10px;margin-bottom:10px;background:rgba(255,255,255,0.01)}
+    .contact form{display:flex;flex-direction:column;gap:10px}
+    .contact input, .contact textarea{
+      padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);
+      background:transparent;color:inherit;font-size:14px
+    }
+    .contact button{margin-top:6px;padding:10px;border-radius:8px;border:0;background:var(--accent);color:#022;font-weight:700}
+
+    /* Footer */
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      header, main{grid-template-columns:1fr;}
+      .profile{justify-content:space-between}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- HEADER / HERO -->
+    <header>
+      <div class="hero card" role="banner" aria-label="Hero">
+        <h1>Eswaran — Cybersecurity Specialist</h1>
+        <p class="lead">Focused on cyber security: ethical hacking, network security, penetration testing, and digital forensics. I build secure systems and run thorough security assessments to protect applications and networks.</p>
+        <div class="meta">
+          <span class="pill">B.E. Cyber Security</span>
+          <span class="pill">Ethical Hacking</span>
+          <span class="pill">Penetration Testing</span>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a class="btn" href="#contact">Hire / Contact</a>
+          <a class="btn" href="#projects" style="background:transparent;color:var(--accent);border:1px solid rgba(255,255,255,0.04);box-shadow:none">View Projects</a>
+        </div>
+      </div>
+
+      <aside class="profile card">
+        <div class="avatar">E</div>
+        <div class="info">
+          <h3>Eswaran</h3>
+          <p>Cybersecurity • Ethical Hacking • Digital Forensics</p>
+          <p style="margin-top:8px;color:var(--muted)">Location: India</p>
+        </div>
+      </aside>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <!-- Left: Content -->
+      <section class="content">
+        <div class="card about section" id="about">
+          <h2>About</h2>
+          <p>Hi — I'm Eswaran, a cybersecurity practitioner trained with a B.E. in Cyber Security. I specialize in vulnerability discovery, penetration testing, and incident analysis. I enjoy breaking systems in controlled ways to make them safer and teaching others how to defend networks and applications.</p>
+          <p style="color:var(--muted);margin-top:8px">Available for freelance security audits, collaboration on security tools, and contract penetration testing.</p>
+        </div>
+
+        <div class="card education section" id="education">
+          <h2>Education</h2>
+          <div class="edu-item">
+            <strong>B.E. Cyber Security</strong><br>
+            <span style="color:var(--muted)">Institution: Mahendra Engineering College</span><br>
+            <span style="color:var(--muted)">Graduation: 2025</span>
+          </div>
+        </div>
+
+        <div class="card skills section" id="skills">
+          <h2>Primary Skills</h2>
+          <div class="skill-list">
+            <span class="skill">Ethical Hacking</span>
+            <span class="skill">Penetration Testing</span>
+            <span class="skill">Network Security</span>
+            <span class="skill">Digital Forensics</span>
+            <span class="skill">Vulnerability Assessment</span>
+            <span class="skill">Linux</span>
+            <span class="skill">Python Scripting</span>
+            <span class="skill">Web App Security</span>
+          </div>
+        </div>
+
+        <div class="card services section" id="services">
+          <h2>Services</h2>
+          <div class="svc">
+            <strong>Penetration Testing (Web & Network)</strong>
+            <p style="color:var(--muted);margin:6px 0 0 0">Full scope penetration testing with a final report including risk rating and remediation steps.</p>
+          </div>
+          <div class="svc">
+            <strong>Vulnerability Assessment</strong>
+            <p style="color:var(--muted);margin:6px 0 0 0">Automated & manual scanning plus prioritized remediation guidance.</p>
+          </div>
+          <div class="svc">
+            <strong>Digital Forensics & Incident Response</strong>
+            <p style="color:var(--muted);margin:6px 0 0 0">Investigation of breaches, evidence preservation and reporting.</p>
+          </div>
+        </div>
+
+        <div class="card projects section" id="projects">
+          <h2>Notable Projects</h2>
+          <div class="projects-grid">
+            <article class="project">
+              <h3>Web App Pen Test — ExampleCorp</h3>
+              <p>Conducted an end-to-end penetration test of the customer-facing web application; found and verified critical vulnerabilities and delivered remediation guidance.</p>
+            </article>
+            <article class="project">
+              <h3>Network Security Audit — Campus Network</h3>
+              <p>Performed network segmentation review, misconfiguration fixes, and improved firewall rulesets to reduce attack surface.</p>
+            </article>
+            <article class="project">
+              <h3>Incident Analysis — Malware Forensics</h3>
+              <p>Analyzed a targeted malware incident, created an IOC list and recommended prevention measures.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- New Certificate Section -->
+        <div class="card certificates section" id="certificates">
+          <h2>Certificate</h2>
+          <p style="color:var(--muted);margin-bottom:10px;">data analytics</p>
+          <img src="img.jpg" alt="Certificate of CEH - EC-Council" />
+        </div>
+      </section>
+
+      <!-- Right: Sidebar -->
+      <aside>
+        <div class="card contact section" id="contact">
+          <h2>Contact</h2>
+          <p style="color:var(--muted);margin-bottom:10px">Email or use the form below. For sensitive engagements, prefer encrypted email or scheduled call.</p>
+
+          <form onsubmit="submitForm(event)">
+            <input type="text" id="name" name="name" placeholder="Eswaran K" required>
+            <input type="email" id="email" name="email" placeholder="eswarankalaimani@gmail.com" required>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            <textarea id="message" name="message" rows="5" placeholder="Message / brief about your project" required></textarea>
+            <button type="submit">Send Email</button>
+          </form>
+
+          <div style="margin-top:12px;color:var(--muted);font-size:13px">
+            <strong>Email:</strong> <a href="mailto:eswarankalaimani@gmail.com" style="color:var(--accent);text-decoration:none">eswarankalaimani@gmail.com</a><br>
+            <strong>LinkedIn:</strong> <a href="#" style="color:var(--accent);text-decoration:none">/in/yourprofile</a><br>
+            <strong>GitHub:</strong> <a href="#" style="color:var(--accent);text-decoration:none">/yourusername</a>
+          </div>
+        </div>
+
+        <div class="card section">
+          <h2>Download CV</h2>
+          <p style="color:var(--muted);margin:0 0 10px 0">Add your resume file to the same folder and link it below.</p>
+          <a class="btn" href="resume.pdf" download>Download Resume</a>
+        </div>
+
+        <div class="card section">
+          <h2>Availability</h2>
+          <p style="color:var(--muted);margin:0">Open for freelance & contract work. Response time: 24–72 hours.</p>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Eswaran • Cybersecurity Portfolio</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function submitForm(e){
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const subject = encodeURIComponent(document.getElementById('subject').value.trim());
+      const message = encodeURIComponent(document.getElementById('message').value.trim() + "\\n\\n--\\nFrom: " + name + " (" + email + ")");
+      const recipient = "youremail@example.com";
+      const mailto = `mailto:${recipient}?subject=${subject}&body=${message}`;
+      window.location.href = mailto;
+    }
+  </script>
+</body>
+</html>
